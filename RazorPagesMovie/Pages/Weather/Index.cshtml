@@ -1,0 +1,105 @@
+﻿@page
+@model RazorPagesMovie.Pages.Weather.IndexModel
+@{
+    ViewData["Title"] = "Weather";
+}
+
+
+<head>
+    <style> 
+        #weatherBody
+        {
+            background-color: rgb(53, 54, 58); 
+        }
+        #CityNameSearch
+        {
+            background-color: rgb(72, 72, 72);
+        }
+        #CityNameSubmit
+        {
+            background-color: gray;
+            color: black;
+        }
+        .blackText
+        {
+            color: black;
+        }
+    </style>
+</head>
+
+<body id="weatherBody" class="blackText">
+
+    <h1>Weather</h1>
+
+    <form method="post"> <!-- User posts City Name to the server through form input-->
+        <fieldset class="blackText">
+            <div>
+                <label for="City">City Name: </label>
+                <input type="text" name="CityName" id="CityNameSearch" value="" />
+            </div>
+            <div>
+                <input id="CityNameSubmit" type="submit" value="Search" class="submit" /> 
+            </div>
+        </fieldset>
+    </form>
+
+    <form method="post"> <!-- Server posts weather information to user -->
+        <fieldset class="blackText">
+            <h5>Location</h5>
+            <div>
+                <label for="CityName">City Name: </label>
+                <text>@Model.CityName</text>
+            </div>
+            <div>
+                <label for="Latitude">Lat: </label>
+                <text>@Model.Lat</text>
+            </div>
+            <div>
+                <label for="Longitude">Lon: </label>
+                <text>@Model.Lon</text>
+            </div>
+            <div>
+                <label for="CountryCode">Country Code: </label>
+                <text>@Model.CountryCode</text>
+            </div>
+
+            <h5>Main</h5> <!-- Main weather information-->
+
+            <div>
+                <label for="Temp">Temperature: </label>
+                <text>@Model.Temp</text>
+            </div>
+            <div>
+                <label for="FeelsLike">Feels Like: </label>
+                <text>@Model.FeelsLike</text>
+            </div>
+            <div>
+                <label for="Humidity">Humidity: </label>
+                <text>@Model.Humidity</text>
+            </div>
+            <div>
+                <label for="WindSpeed">Wind Speed: </label>
+                <text>@Model.WindSpeed</text>
+            </div>
+            <div>
+                <label for="CloudCoverage">Cloud Coverage: </label>
+                <text>@Model.CloudCover</text>
+            </div>
+
+            <h5>Time</h5>
+            
+            <div>
+                <label for="Timezone">Timezone: </label>
+                <text>@Model.Timezone</text>
+            </div>
+            <div>
+                <label for="SunriseTime">Sunrise: </label>
+                <text>@Model.Sunrise</text>
+            </div>
+            <div>
+                <label for="SunsetTime">Sunset: </label>
+                <text>@Model.Sunset</text>
+            </div>
+        </fieldset>
+    </form>
+</body>
